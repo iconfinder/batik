@@ -256,11 +256,11 @@ public abstract class PaintServer
                 return convertColor(paintDef, opacity);
 
             case CSSPrimitiveValue.CSS_URI:
-                return convertURIPaint(paintedElement,
-                                       paintedNode,
-                                       paintDef,
-                                       opacity,
-                                       ctx);
+                return silentConvertURIPaint(paintedElement,
+                                             paintedNode,
+                                             paintDef,
+                                             opacity,
+                                             ctx);
 
             default:
                 throw new IllegalArgumentException

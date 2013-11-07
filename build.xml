@@ -834,7 +834,7 @@ JAVA=/usr/bin/java
 
     <echo message="debug ${debug}, optimize ${optimize}, deprecation ${deprecation}"/>
 
-    <javac srcdir="${testsrc}" destdir="${dest}"  deprecation="${deprecation}" 
+    <javac debuglevel="lines,vars,source" srcdir="${testsrc}" destdir="${dest}"  deprecation="${deprecation}" 
            debug="${debug}" optimize="${optimize}" encoding="UTF-8">
       <classpath>
         <pathelement location="${dest}"/>
@@ -858,7 +858,7 @@ JAVA=/usr/bin/java
 
     <echo message="debug ${debug}, optimize ${optimize}, deprecation ${deprecation}"/>
 
-    <javac srcdir="${samples}/tests/resources/java/sources" destdir="${samples}/tests/resources/java/classes"  deprecation="${deprecation}" 
+    <javac debuglevel="lines,vars,source" srcdir="${samples}/tests/resources/java/sources" destdir="${samples}/tests/resources/java/classes"  deprecation="${deprecation}" 
            debug="${debug}" optimize="${optimize}" encoding="UTF-8">
       <classpath>
         <pathelement location="${dest}"/>
@@ -868,7 +868,7 @@ JAVA=/usr/bin/java
       </classpath>
     </javac>
 
-    <javac srcdir="${testresources}" destdir="${testresources}/classes"  deprecation="${deprecation}" 
+    <javac debuglevel="lines,vars,source" srcdir="${testresources}" destdir="${testresources}/classes"  deprecation="${deprecation}" 
            debug="${debug}" optimize="${optimize}" encoding="UTF-8">
       <classpath>
         <pathelement location="${dest}"/>
@@ -1004,7 +1004,7 @@ JAVA=/usr/bin/java
   </target>
 
   <target name="compile" depends="init, compile-prepare" unless="compile.done">
-    <javac destdir="${dest}" deprecation="${deprecation}" 
+    <javac debuglevel="lines,vars,source" destdir="${dest}" deprecation="${deprecation}" 
            debug="${debug}" optimize="${optimize}" encoding="UTF-8">
       <src path="${src}"/>
       <src path="${src-jdk}"/>

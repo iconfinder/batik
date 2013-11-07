@@ -185,6 +185,10 @@ public class PadRed extends AbstractRed {
     }
 
     protected void handleZero(WritableRaster wr) {
+        // Bail if the writable raster is null.
+        if (wr == null)
+            return;
+        
         // Get my source.
         CachableRed src  = (CachableRed)getSources().get(0);
         Rectangle   srcR = src.getBounds();

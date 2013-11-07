@@ -716,7 +716,13 @@ public abstract class CSSUtilities
 
         case CSSPrimitiveValue.CSS_URI:
             String uri = v.getStringValue();
-            Element cp = ctx.getReferencedElement(clippedElement, uri);
+            Element cp;
+            try {
+                cp = ctx.getReferencedElement(clippedElement, uri);
+            }
+            catch (BridgeException ex) {
+                return null;
+            }
             Bridge bridge = ctx.getBridge(cp);
             if (bridge == null || !(bridge instanceof ClipBridge)) {
                 throw new BridgeException(ctx, clippedElement,
